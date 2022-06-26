@@ -20,9 +20,6 @@ def train_epoch(train_loader, model, optimizer, scheduler, epoch):
         batch_token_starts = batch_token_starts.to(config.device)
         batch_labels = batch_labels.to(config.device)
         batch_masks = batch_data.gt(0)  # get padding mask
-        for i in range(len(batch_data)):
-            if len(batch_data[i]) != len(batch_labels[i]):
-                continue
         
         # compute model output and loss
         loss = model((batch_data, batch_token_starts),

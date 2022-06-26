@@ -4,7 +4,7 @@ import utils
 import config
 import logging
 import numpy as np
-import tqdm
+from tqdm import tqdm
 from data_process import Processor
 from data_loader import Sentence
 from model import BertSeg
