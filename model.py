@@ -1,10 +1,11 @@
 from transformers.models.bert.modeling_bert import *
+from transformers.models.roberta.modeling_roberta import RobertaPreTrainedModel
 from transformers import RobertaModel
 from torch.nn.utils.rnn import pad_sequence
 from torchcrf import CRF
 
 
-class BertSeg(BertPreTrainedModel):
+class BertSeg(RobertaPreTrainedModel): # BertPreTrainedModel
     def __init__(self, config):
         super(BertSeg, self).__init__(config)
         self.num_labels = config.num_labels

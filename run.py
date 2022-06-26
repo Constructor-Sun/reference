@@ -43,7 +43,7 @@ def test():
     # Prepare model
     if config.model_dir is not None:
         # model = BertSeg.from_pretrained(config.model_dir)
-        model = BertSeg.from_pretrained(config.bert_model, num_labels=len(config.label2id))
+        model = BertSeg.from_pretrained(config.roberta_model, num_labels=len(config.label2id))
         model.to(config.device)
         logging.info("--------Load model from {}--------".format(config.model_dir))
     else:

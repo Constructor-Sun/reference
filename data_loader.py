@@ -32,12 +32,7 @@ class Sentence(Dataset):
             words = []
             word_lens = []
             for token in line:
-                word = self.tokenizer.tokenize(token)
-                if word != '[UNK]':
-                    words.append(word)
-                else:
-                    self.tokenizer.add_tokens(token)
-                    words.append(self.tokenizer.tokenize(token))
+                words.append(self.tokenizer.tokenize(token))
                 word_lens.append(len(token))
             # 变成单个字的列表，开头加上[CLS]
             words = ['[CLS]'] + [item for token in words for item in token]
@@ -49,8 +44,6 @@ class Sentence(Dataset):
             labels.append(label_id)
         for sentence, label in zip(sentences, labels):
             data.append((sentence, label))
-        if len(self.tokenizer) != 21128:
-            print("len_tokenizer: ", len(self.tokenizer))
         return data
 
     def __getitem__(self, idx):
