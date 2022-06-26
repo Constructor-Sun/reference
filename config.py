@@ -3,7 +3,7 @@ import torch
 
 # bert_model = './pretrained_bert_models/bert-base-chinese/'
 bert_model = './reference/pretrained_bert_models/bert-base-chinese/'
-roberta_model = './reference/pretrained_bert_models/roberta-base/'
+roberta_model = './reference/pretrained_bert_models/chinese-roberta-wwm-ext-large/'
 
 model_dir = './reference/experiments/'
 data_dir = './reference/data/'
@@ -23,7 +23,7 @@ res_dir = data_dir + 'res.txt'
 test_ans = data_dir + 'test.txt'
 
 max_vocab_size = 1000000
-max_len = 500
+max_len = 510
 sep_word = '@'  # 拆分句子的文本分隔符
 sep_label = 'S'  # 拆分句子的标签分隔符
 

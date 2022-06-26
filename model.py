@@ -5,13 +5,13 @@ from torch.nn.utils.rnn import pad_sequence
 from torchcrf import CRF
 
 
-class BertSeg(RobertaPreTrainedModel): # BertPreTrainedModel
+class BertSeg(BertPreTrainedModel): # BertPreTrainedModel
     def __init__(self, config):
         super(BertSeg, self).__init__(config)
         self.num_labels = config.num_labels
 
-        # self.bert = BertModel(config)
-        self.bert = RobertaModel(config)
+        self.bert = BertModel(config)
+        # self.bert = RobertaModel(config)
         self.dropout = nn.Dropout(config.hidden_dropout_prob)
 
         self.bilstm = nn.LSTM(

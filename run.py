@@ -1,6 +1,5 @@
 import os
 
-from transformers import RobertaModel
 import utils
 import config
 import logging

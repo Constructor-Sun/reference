@@ -7,7 +7,8 @@ from torch.utils.data import Dataset
 class Sentence(Dataset):
     def __init__(self, words, labels, config, word_pad_idx=0, label_pad_idx=-1):
         # self.tokenizer = BertTokenizer.from_pretrained(config.bert_model, do_lower_case=True)
-        self.tokenizer = RobertaTokenizer.from_pretrained(config.roberta_model, do_lower_case=True)
+        self.tokenizer = BertTokenizer.from_pretrained(config.roberta_model, do_lower_case=True)
+        # self.tokenizer = RobertaTokenizer.from_pretrained(config.roberta_model, do_lower_case=True)
         self.label2id = config.label2id
         self.id2label = {_id: _label for _label, _id in list(config.label2id.items())}
         self.dataset = self.preprocess(words, labels)
