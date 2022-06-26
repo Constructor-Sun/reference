@@ -4,6 +4,7 @@ import utils
 import config
 import logging
 import numpy as np
+import tqdm
 from data_process import Processor
 from data_loader import Sentence
 from model import BertSeg
@@ -134,6 +135,12 @@ def run():
     #                                 device_ids=[config.local_rank], output_device=config.local_rank)
     # Train the model
     logging.info("--------Start Training!--------")
+    for idx, batch_samples in enumerate(tqdm(train_loader)):
+        batch_data, batch_token_starts, batch_labels, _ = batch_samples
+        for i in range(len(batch_data)):
+            if len(batch_data[i]) != len(batch_labels[i]):
+                print("i: ", i)
+
     train(train_loader, dev_loader, model, optimizer, scheduler, config.model_dir)
 
 
