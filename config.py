@@ -41,7 +41,7 @@ learning_rate = 1e-5
 weight_decay = 0.01
 clip_grad = 5
 
-batch_size = 8
+batch_size = 4
 epoch_num = 20
 min_epoch_num = 5
 patience = 0.0002
