@@ -64,6 +64,7 @@ class Sentence(Dataset):
             2. aligning: 找到每个sentence sequence里面有label项，文本与label对齐
             3. tensor：转化为tensor
         """
+        print("batch_shape: ", batch.shape)
         sentences = [x[0][0] for x in batch]
         ori_sents = [x[0][1] for x in batch]
         labels = [x[1] for x in batch]
