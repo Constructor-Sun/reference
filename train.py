@@ -60,7 +60,7 @@ def train(train_loader, dev_loader, model, optimizer, scheduler, model_dir): #, 
             #  选择一个进程保存
             # if local_rank == 0:
             # model.save_pretrained(model_dir)
-            torch.save(model, "./reference/model.pkl")
+            torch.save(model, "./model.pkl")
             logging.info("--------Save best model!--------")
             print("--------Save best model!--------")
             if improve_f1 < config.patience:
