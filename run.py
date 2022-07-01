@@ -138,7 +138,7 @@ def run():
     for idx, batch_samples in enumerate(tqdm(train_loader)):
         batch_data, batch_token_starts, batch_labels, _ = batch_samples
         for i in range(len(batch_data)):
-            if len(batch_data[i]) != len(batch_labels[i]) + 1:
+            if len(batch_data[i]) != len(batch_labels[i]) + 3:
                 print("i: ", i)
                 print("batch_data[i]: ", len(batch_data[i]))
                 print("batch_labels[i]: ", len(batch_labels[i]))
