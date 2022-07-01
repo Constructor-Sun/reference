@@ -114,6 +114,9 @@ def evaluate(dev_loader, model, mode='dev'):
             # (batch_size, max_len - padding_label_len)
             true_tags.extend([[id2label.get(idx) for idx in indices if idx > -1] for indices in batch_tags])
 
+            if idx // 100 == 0:
+                torch.cuda.empty_cache()
+
     assert len(pred_tags) == len(true_tags)
     assert len(sent_data) == len(true_tags)
 
