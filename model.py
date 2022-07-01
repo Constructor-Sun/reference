@@ -12,13 +12,13 @@ class BertSeg(BertPreTrainedModel): # BertPreTrainedModel
 
         self.bert = BertModel(config)
         # self.bert = RobertaModel(config)
-        self.dropout = nn.Dropout(config.hidden_dropout_prob)
+        self.dropout = nn.Dropout(config.hidden_dropout_prob) # config.hidden_dropout_prob
 
         self.bilstm = nn.LSTM(
             input_size=1024,  # 768
             hidden_size=config.hidden_size // 2,  # 1024 / 2
             batch_first=True,
-            num_layers=2,
+            num_layers=3,
             dropout=0.5,  # 0.5
             bidirectional=True
         )
