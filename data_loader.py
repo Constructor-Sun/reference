@@ -71,7 +71,7 @@ class Sentence(Dataset):
         # batch length
         batch_len = len(sentences)
         # compute length of longest sentence in batch
-        max_len = max([len(s[0]) for s in sentences])
+        max_len = max([len(s[0]) for s in sentences]) + 2
         
         max_label_len = 0
         word_pad_idx = 0
